@@ -43,6 +43,54 @@ function Others() {
                             "react-responsive",
                           ]}
                         />
+                        <Archivecard
+                          description={
+                            'The project "Blog App API" is a backend application designed to serve as the server-side component for a blogging platform. Built using Node.js and Express.js, this API provides a robust and scalable foundation for managing blog posts, users, comments, and other essential features of a blogging platform.'
+                          }
+                          git1={true}
+                          git1link={"https://github.com/JCDWHIZ/blog-app-API"}
+                          git2={false}
+                          name={"Blog API using node"}
+                          library={["Node JS", "Express JS"]}
+                          site={false}
+                        />
+                        <Archivecard
+                          description={
+                            'The project "A Chat Application using Ajax and PHP" is a web-based chat application built with a combination of front-end technologies such as Ajax (Asynchronous JavaScript and XML) and back-end scripting using PHP. This application enables real-time communication between users in a chat room environment.'
+                          }
+                          git1={true}
+                          git1link={
+                            "https://github.com/JCDWHIZ/A-Chat-Application-using-Ajax-and-PHP"
+                          }
+                          library={["Ajax", "PHP", "Mysql"]}
+                          git2={false}
+                          name={"A-Chat-Application-using-Ajax-and-PHP"}
+                          site={false}
+                        />
+                        <Archivecard
+                          description={
+                            "A simple backend involving node js. This API performs all CRUD operations"
+                          }
+                          git1={true}
+                          git1link={
+                            "https://github.com/JCDWHIZ/REST-Api-using-node.js"
+                          }
+                          git2={false}
+                          library={["Node JS", "Express JS", "nodemon", "uuid"]}
+                          name={"REST API"}
+                          site={false}
+                        />
+                        <Archivecard
+                          description={
+                            "A simple react app that utilizes REDUX as its state handler. This is a simple Todo app that does simple functions like add, edit and delete"
+                          }
+                          git1={true}
+                          git1link={"https://github.com/JCDWHIZ/Redux-Todo"}
+                          library={["React JS", "Vite", "Redux"]}
+                          name={"Todo App - Redux"}
+                          site={false}
+                          git2={false}
+                        />
                       </div>
                     </div>
                   </div>

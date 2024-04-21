@@ -118,6 +118,11 @@ function SpeechRecognitionComponent() {
             {isListening ? <DiIntellij /> : <DiIntellij />}
           </button>
         </div>
+        {transcript && (
+          <div className="bg-white rounded-tl-full rounded-bl-full fixed right-[78px] bottom-11 p-3">
+            <p>{transcript}</p>
+          </div>
+        )}
       </div>
     </div>
   );

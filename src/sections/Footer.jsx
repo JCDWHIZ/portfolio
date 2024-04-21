@@ -15,7 +15,7 @@ function Footer() {
   return (
     <div>
       <div className="">
-        <div className="py-[100px]">
+        <div className="sm:py-[100px] lg:py-0">
           <div className="md:fixed bottom-0 left-11">
             <div className="flex md:flex-col sm:gap-[190px] md:gap-10 justify-center items-center">
               <a
@@ -33,7 +33,7 @@ function Footer() {
               <span className="border border-slate sm:hidden  md:block h-[130px]"></span>
             </div>
           </div>
-          <div className="fixed bottom-0 lg:right-11 md:right-[-40px] sm:hidden md:block">
+          <div className="fixed bottom-0 lg:right-[-30px] md:right-[-40px] sm:hidden md:block">
             <div className="flex flex-col justify-center items-center gap-[100px]">
               <span
                 className="text-slate rotate-90 sss hover:text-green transition-all duration-300 transform hover:-translate-y-3"

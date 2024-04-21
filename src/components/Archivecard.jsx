@@ -19,7 +19,7 @@ function Archivecard({
       <div className="">
         <div className="">
           <div className="">
-            <div className="bg-darknavy/40 shadow-xl p-9 w-[320px] rounded-lg h-full hover:bg-darknavy/50">
+            <div className="bg-darknavy/40 shadow-xl p-9 w-[320px] rounded-lg h-[600px] hover:bg-darknavy/50">
               <div className="flex justify-between items-center hover:text-green">
                 <div className="">
                   <CiFolderOn className="text-green file text-[80px]" />

@@ -1,6 +1,10 @@
 import React from "react";
 import Card from "../components/Card";
 import img from "../project1.png";
+import img2 from "../project2.png";
+import img3 from "../project3.png";
+import img4 from "../project4.png";
+import img5 from "../project5.png";
 
 function Projects() {
   return (
@@ -36,6 +40,66 @@ function Projects() {
                           img={img}
                           site={true}
                           link2={"https://loan-calculator-nu-rouge.vercel.app/"}
+                        />
+                        <Card
+                          position={"right"}
+                          description={
+                            "This is a simple landing page made using the library SASS. It contains all basic requirements of a landing page e.g header, footer etc."
+                          }
+                          library={["SASS", "React", "AOS"]}
+                          name={"A-simple-landing-page-using-sass"}
+                          git={true}
+                          link1={
+                            "https://github.com/JCDWHIZ/a-simple-landing-page-using-sass"
+                          }
+                          site={true}
+                          link2={"https://finache.vercel.app"}
+                          img={img2}
+                        />
+                        <Card
+                          description={
+                            "This simple landing page has just a simple function. Engage in a breathing exercise in the site"
+                          }
+                          git={true}
+                          library={["HTMl", "Javascript", "CSS"]}
+                          link1={"https://github.com/JCDWHIZ/relaxer"}
+                          site={true}
+                          link2={"https://relaxer-one.vercel.app"}
+                          name={"Relaxer"}
+                          position={"left"}
+                          img={img3}
+                        />
+                        <Card
+                          description={
+                            "This is a javascript game that utilizes the fetch function api calls. You think you can win a trivia game, then try this"
+                          }
+                          git={true}
+                          library={["HTML", "CSS", "Javascript"]}
+                          link1={"https://github.com/JCDWHIZ/JSGames"}
+                          site={true}
+                          link2={"https://quizgame-gray.vercel.app"}
+                          position={"right"}
+                          name={"JSGames"}
+                          img={img4}
+                        />
+
+                        <Card
+                          description={
+                            'The project "Hulu Clone" is a web application that replicates the functionality and design of the popular streaming platform Hulu. Developed using React.js, this clone offers a visually appealing and interactive interface for browsing a wide range of movies and TV shows.'
+                          }
+                          git={true}
+                          link1={"https://github.com/JCDWHIZ/hulu-clone"}
+                          library={[
+                            "React JS",
+                            "react-icons",
+                            "CSS",
+                            "Javascript",
+                          ]}
+                          link2={"https://huluclone-xi.vercel.app"}
+                          name={"Hulu clone"}
+                          position={"left"}
+                          site={true}
+                          img={img5}
                         />
                       </div>
                     </div>

@@ -92,18 +92,18 @@ function Card({
                         {description}
                       </p>
                     </div>
-                    <div className="text-slate flex gap-3 p-3 text-[19px]">
+                    <div className="text-slate flex gap-3 p-3 text-[19px] xl:justify-end">
                       <ul className="flex items-center gap-4 sm:flex-wrap md:flex-nowrap">
                         {library.map((detail, index) => (
                           <div className="text-green flex flex-wrap ">
-                            <li key={index} className="whitespace-nowrap">
+                            <li key={index} className="whitespace-nowrap ">
                               {detail}
                             </li>
                           </div>
                         ))}
                       </ul>
                     </div>
-                    <div className="flex items-center gap-8">
+                    <div className="flex items-center gap-8 xl:justify-end">
                       <span>
                         {git ? (
                           <a href={link1}>
