@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 function Contact() {
   const handleEmailClick = () => {
@@ -12,7 +13,13 @@ function Contact() {
   };
   return (
     <div>
-      <section id="contact" className="">
+      <motion.section
+        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 30 }}
+        transition={{ type: "tween", duration: 0.5 }}
+        id="contact"
+        className=""
+      >
         <div className=" md:h-[60vh] lg:h-[94vh] pt-[40px]">
           <div className="flex justify-center items-center flex-col gap-[50px]">
             <div className="flex flex-col text-center gap-4 lg:w-[48%] md:w-[70%] sm:w-[70%]">
@@ -34,7 +41,7 @@ function Contact() {
             </button>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }

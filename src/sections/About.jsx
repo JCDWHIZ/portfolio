@@ -1,5 +1,6 @@
 import React from "react";
 import img from "../profile.jpeg";
+import { motion } from "framer-motion";
 import { TiMediaPlayOutline } from "react-icons/ti";
 
 function About() {
@@ -10,7 +11,12 @@ function About() {
           <div className="">
             <div className="flex justify-center">
               <div className="">
-                <div className="flex items-center gap-4  sm:justify-center md:justify-start">
+                <motion.div
+                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  transition={{ type: "tween", duration: 0.5 }}
+                  className="flex items-center gap-4  sm:justify-center md:justify-start"
+                >
                   <h1 className="sm:text-[20px] md:text-[40px] text-green">
                     01.
                   </h1>
@@ -18,9 +24,14 @@ function About() {
                     About Me
                   </h1>
                   <span className="sm:w-[170px] md:w-[350px] border-b border-slate"></span>
-                </div>
+                </motion.div>
                 <div className="my-[50px] md:w-[700px] sm:w-[500px] flex gap-3 md:flex-nowrap sm:flex-wrap sm:justify-center md:justify-between">
-                  <div className="text-slate text-[18px] sm:w-[60%] md:w-[60%] lg:w-[80%] flex flex-col justify-center">
+                  <motion.div
+                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, x: -80 }}
+                    transition={{ type: "tween", duration: 0.5 }}
+                    className="text-slate text-[18px] sm:w-[60%] md:w-[60%] lg:w-[80%] flex flex-col justify-center"
+                  >
                     <p className="font-sans">
                       A Software Developer who loves to transform ideas into
                       reality using code. I am skilled in creating responsive
@@ -65,8 +76,13 @@ function About() {
                         Tailwind
                       </li>
                     </ul>
-                  </div>
-                  <div className=" h-[400px]">
+                  </motion.div>
+                  <motion.div
+                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 80 }}
+                    transition={{ type: "tween", duration: 0.5 }}
+                    className=" h-[400px]"
+                  >
                     <div className="object-cover sm:w-[270px] md:w-[350px] h-full relative ease-in-out">
                       <img
                         src={img}
@@ -75,7 +91,7 @@ function About() {
                       />
                       <div className="border border-green rounded-lg sm:w-[270px] md:w-[350px] h-[400px] ease-in-out z-[-1] mt-[-380px] ml-[20px]"></div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>

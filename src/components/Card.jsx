@@ -1,6 +1,7 @@
 import React from "react";
 import { GoLinkExternal } from "react-icons/go";
 import { VscGithubAlt } from "react-icons/vsc";
+import { motion } from "framer-motion";
 
 function Card({
   position,
@@ -20,7 +21,12 @@ function Card({
           <div className="">
             <div className="lg:w-[900px] md:w-[600px] sm:w-[450px] ">
               {position === "left" ? (
-                <div className="flex justify-center items-center relative my-[50px] ">
+                <motion.div
+                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, x: -80 }}
+                  transition={{ type: "tween", duration: 0.6 }}
+                  className="flex justify-center items-center relative my-[50px] "
+                >
                   <div className="text lg:w-[40%] md:w-[30%] z-[50] sm:w-[70%] -mt-[100px]">
                     <h1 className="text-green my-2">Featured Project</h1>
                     <h1 className="text-[24px] text-white roboto my-2">
@@ -69,9 +75,14 @@ function Card({
                       className="object-cover lg:w-[600px] md:w-[450px] h-[300px] rounded-lg ease-in-out grayscale hover:grayscale-0"
                     />
                   </div>
-                </div>
+                </motion.div>
               ) : (
-                <div className="flex justify-center items-center relative my-[50px]">
+                <motion.div
+                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, x: 80 }}
+                  transition={{ type: "tween", duration: 0.6 }}
+                  className="flex justify-center items-center relative my-[50px]"
+                >
                   <div className="img object-cover  h-[400px] sm:hidden md:block">
                     <img
                       src={img}
@@ -124,7 +135,7 @@ function Card({
                       </span>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               )}
             </div>
           </div>

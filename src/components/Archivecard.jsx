@@ -2,6 +2,7 @@ import React from "react";
 import { CiFolderOn } from "react-icons/ci";
 import { VscGithubAlt } from "react-icons/vsc";
 import { GoLinkExternal } from "react-icons/go";
+import { motion } from "framer-motion";
 
 function Archivecard({
   site,
@@ -15,7 +16,12 @@ function Archivecard({
   name,
 }) {
   return (
-    <div className="transition-all duration-300 transform hover:-translate-y-3 ">
+    <motion.div
+      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 30 }}
+      transition={{ type: "tween", duration: 0.5 }}
+      className="transition-all duration-300 transform hover:-translate-y-3 "
+    >
       <div className="">
         <div className="">
           <div className="">
@@ -74,7 +80,7 @@ function Archivecard({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { VscGithubAlt } from "react-icons/vsc";
+import { motion } from "framer-motion";
 
 function Footer() {
   const handleEmailClick = () => {
@@ -14,7 +15,12 @@ function Footer() {
   };
   return (
     <div>
-      <div className="">
+      <motion.div
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        transition={{ type: "tween", delay: 1.9 }}
+        className=""
+      >
         <div className="sm:py-[100px] lg:py-0">
           <div className="md:fixed bottom-0 left-11">
             <div className="flex md:flex-col sm:gap-[190px] md:gap-10 justify-center items-center">
@@ -45,7 +51,7 @@ function Footer() {
             </div>{" "}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

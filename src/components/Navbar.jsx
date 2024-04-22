@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 function Navbar() {
   const [shadow, setShadow] = useState("");
@@ -42,30 +43,48 @@ function Navbar() {
       >
         <div className="p-4 px-[50px] flex justify-between items-center sm:hidden md:block">
           <div className="flex items-center gap-[35px] ml-6">
-            <a href="#about">
+            <motion.a
+              href="#about"
+              animate={{ y: 0, opacity: 1 }}
+              initial={{ y: -30, opacity: 0 }}
+              transition={{ type: "tween", delay: 0.5 }}
+            >
               <h1 className="text-[18px]">
                 <span className="text-green">01.</span>{" "}
                 <span className="text-white">About </span>
               </h1>
-            </a>
-            <a href="#project">
+            </motion.a>
+            <motion.a
+              href="#project"
+              animate={{ y: 0, opacity: 1 }}
+              initial={{ y: -30, opacity: 0 }}
+              transition={{ type: "tween", delay: 0.7 }}
+            >
               <h1 className="text-[18px]">
                 <span className="text-green">02.</span>{" "}
                 <span className="text-white">Projects </span>
               </h1>
-            </a>
-            <a href="#contact">
+            </motion.a>
+            <motion.a
+              href="#contact"
+              animate={{ y: 0, opacity: 1 }}
+              initial={{ y: -30, opacity: 0 }}
+              transition={{ type: "tween", delay: 0.9 }}
+            >
               <h1 className="text-[18px]">
                 <span className="text-green">03.</span>{" "}
                 <span className="text-white">Contact </span>
               </h1>
-            </a>
-            <button
+            </motion.a>
+            <motion.button
+              animate={{ y: 0, opacity: 1 }}
+              initial={{ y: -30, opacity: 0 }}
+              transition={{ type: "tween", delay: 1.1 }}
               onClick={handleDownload}
               className="py-2 px-4 hover:bg-green/10 border rounded-lg text-green border-green text-[18px]"
             >
               Resume
-            </button>
+            </motion.button>
           </div>
           {/* <div className=" flex gap-3 mr-6">
             <button className="py-2 px-4 hover:bg-green/10 border rounded-lg text-green border-green text-[18px]">

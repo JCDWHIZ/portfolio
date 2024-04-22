@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { DiIntellij } from "react-icons/di";
 import { FaTimes } from "react-icons/fa";
 import { BiShow } from "react-icons/bi";
+import { motion } from "framer-motion";
 
 function SpeechRecognitionComponent() {
   const [transcript, setTranscript] = useState("");
@@ -119,9 +120,14 @@ function SpeechRecognitionComponent() {
           </button>
         </div>
         {transcript && (
-          <div className="bg-white rounded-tl-full rounded-bl-full fixed right-[78px] bottom-11 p-3">
+          <motion.div
+            animate={{ x: 0 }}
+            initial={{ x: 30 }}
+            transition={{ type: "tween" }}
+            className="bg-white rounded-tl-full rounded-bl-full fixed right-[78px] bottom-11 p-3"
+          >
             <p>{transcript}</p>
-          </div>
+          </motion.div>
         )}
       </div>
     </div>

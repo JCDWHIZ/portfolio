@@ -5,6 +5,7 @@ import img2 from "../project2.png";
 import img3 from "../project3.png";
 import img4 from "../project4.png";
 import img5 from "../project5.png";
+import { motion } from "framer-motion";
 
 function Projects() {
   return (
@@ -16,7 +17,12 @@ function Projects() {
               <div className="flex justify-center w-full flex-col">
                 <div className="">
                   <div className="">
-                    <div className="flex items-center justify-center gap-4">
+                    <motion.div
+                      whileInView={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0, y: 30 }}
+                      transition={{ type: "tween", duration: 0.5 }}
+                      className="flex items-center justify-center gap-4"
+                    >
                       <h1 className="sm:text-[20px] md:text-[40px] text-green">
                         02.
                       </h1>
@@ -24,7 +30,7 @@ function Projects() {
                         Projects
                       </h1>
                       <span className="sm:w-[180px] md:w-[350px] border-b border-slate"></span>
-                    </div>
+                    </motion.div>
 
                     <div className="my-[100px] w-full ">
                       <div className="lg:ml-[250px]">
