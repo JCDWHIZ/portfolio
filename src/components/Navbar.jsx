@@ -86,6 +86,7 @@ function Navbar() {
               Resume
             </motion.button>
           </div>
+
           {/* <div className=" flex gap-3 mr-6">
             <button className="py-2 px-4 hover:bg-green/10 border rounded-lg text-green border-green text-[18px]">
               Web Dev.
@@ -94,6 +95,12 @@ function Navbar() {
               Graphic Designer
             </button>
           </div> */}
+        </div>
+
+        <div className="py-6 px-[30px] flex justify-between items-center sm:block md:hidden shadow-lg">
+          <div className="">
+            <h1 className="text-[18px] text-green">My Porfoliio</h1>
+          </div>
         </div>
       </div>
     </div>

@@ -30,7 +30,7 @@ function About() {
                     whileInView={{ opacity: 1, x: 0 }}
                     initial={{ opacity: 0, x: -80 }}
                     transition={{ type: "tween", duration: 0.5 }}
-                    className="text-slate text-[18px] sm:w-[60%] md:w-[60%] lg:w-[80%] flex flex-col justify-center"
+                    className="text-slate text-[18px] sm:w-[60%] md:w-[45%] lg:w-[80%] flex flex-col justify-center"
                   >
                     <p className="font-sans">
                       A Software Developer who loves to transform ideas into
@@ -87,9 +87,10 @@ function About() {
                       <img
                         src={img}
                         alt="profile"
-                        className="object-cover h-full w-full z-[100] grayscale hover:grayscale-0 "
+                        className="object-cover w-full h-full"
                       />
                       <div className="border border-green rounded-lg sm:w-[270px] md:w-[350px] h-[400px] ease-in-out z-[-1] mt-[-380px] ml-[20px]"></div>
+                      <div className="absolute inset-0 bg-[#24ffcc] opacity-30 hover:opacity-0 transition-opacity duration-300"></div>
                     </div>
                   </motion.div>
                 </div>
