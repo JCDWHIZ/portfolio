@@ -1,9 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-function Contact() {
-  const handleEmailClick = () => {
-    const email = "recipient@example.com";
+function Contact({ about }) {
+  const handleEmailClick = (email) => {
     const subject = "Hello!";
     const body = "This is the body of the email.";
 
@@ -34,7 +33,9 @@ function Contact() {
               </h1>
             </div>
             <button
-              onClick={handleEmailClick}
+              onClick={() => {
+                handleEmailClick(about?.[0]?.gmailLink);
+              }}
               className="py-4 px-8 border border-green text-green rounded-lg hover:bg-green/10 text-[20px]"
             >
               Contact Me

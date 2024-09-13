@@ -38,7 +38,7 @@ function Card({
                     </div>
                     <div className="text-slate flex gap-3 p-3 text-[19px]">
                       <ul className="flex items-center gap-4 sm:flex-wrap md:flex-nowrap">
-                        {library.map((detail, index) => (
+                        {library?.map((detail, index) => (
                           <div className="text-green ">
                             <li key={index} className="whitespace-nowrap">
                               {detail}
@@ -105,7 +105,7 @@ function Card({
                     </div>
                     <div className="text-slate flex gap-3 p-3 text-[19px] xl:justify-end">
                       <ul className="flex items-center gap-4 sm:flex-wrap md:flex-nowrap">
-                        {library.map((detail, index) => (
+                        {library?.map((detail, index) => (
                           <div className="text-green flex flex-wrap ">
                             <li key={index} className="whitespace-nowrap ">
                               {detail}

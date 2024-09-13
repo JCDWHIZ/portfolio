@@ -1,42 +1,59 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import Navbar from "./components/Navbar";
-import About from "./sections/About";
-import Hero from "./sections/Hero";
-import Others from "./sections/Others";
-import Projects from "./sections/Projects";
-import Contact from "./sections/Contact";
-import Footer from "./sections/Footer";
 import Loading from "./components/Loading";
-import SpeechRecognitionComponent from "./sections/nnn";
+import Mainroute from "./routes/Mainroute";
+import fetchWithToken from "./components/Service";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [about, setAbout] = useState(null);
+  const [archive, setArchive] = useState(null);
+  const [project, setProject] = useState(null);
+  const [error, setError] = useState(null);
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const [response1, response2, response3] = await Promise.all([
+        fetchWithToken(
+          "https://portfolio-backend-d7ca.onrender.com/about",
+          "GET"
+        ),
+        fetchWithToken(
+          "https://portfolio-backend-d7ca.onrender.com/archive",
+          "GET"
+        ),
+        fetchWithToken(
+          "https://portfolio-backend-d7ca.onrender.com/project",
+          "GET"
+        ),
+      ]);
+      localStorage.setItem("about", JSON.stringify(response1));
+      localStorage.setItem("archive", JSON.stringify(response2));
+      localStorage.setItem("project", JSON.stringify(response3));
+      setAbout(response1);
+      setArchive(response2);
+      setProject(response3);
+      setLoading(false);
+    } catch (err) {
+      console.error("Error fetching data:", err);
+      setError(err.message);
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+    // const timer = setTimeout(() => {
+    //   setLoading(false);
+    // }, 3000);
 
-    return () => clearTimeout(timer);
+    fetchData();
+    // return () => clearTimeout(timer);
   }, []);
   if (loading) {
     return <Loading loading={loading} />;
   }
-  return (
-    <div className="App">
-      <div className="bg-lightnavy">
-        <Navbar />
-        <Hero />
-        <About />
-        <Projects />
-        <Others />
-        <Contact />
-        <Footer />
-        <SpeechRecognitionComponent />
-      </div>
-    </div>
-  );
+  return <Mainroute about={about} project={project} archive={archive} />;
 }
 
 export default App;

@@ -7,7 +7,21 @@ import img4 from "../project4.png";
 import img5 from "../project5.png";
 import { motion } from "framer-motion";
 
-function Projects() {
+function Projects({ project }) {
+  function parseStringArray(input) {
+    try {
+      const parsedArray = JSON.parse(input);
+      if (Array.isArray(parsedArray)) {
+        return parsedArray;
+      } else {
+        throw new Error("Parsed result is not an array");
+      }
+    } catch (error) {
+      console.error("Error parsing input string:", error);
+      return [];
+    }
+  }
+  const baseurl = "https://portfolio-backend-d7ca.onrender.com/";
   return (
     <section id="project" className="lg:w-[80%] mt-[100px]">
       <div>
@@ -34,79 +48,20 @@ function Projects() {
 
                     <div className="my-[100px] w-full ">
                       <div className="lg:ml-[250px]">
-                        <Card
-                          position={"left"}
-                          description={
-                            'The project "Loan Calculator" is a web application designed to help users calculate and analyze loan-related financial data. Developed using HTML, CSS, and JavaScript, this calculator offers a simple and intuitive interface for estimating loan payments, interest rates, and repayment schedules.'
-                          }
-                          git={true}
-                          link1={"https://github.com/JCDWHIZ/loan-calculator"}
-                          library={["HTML", "CSS", "Javascript"]}
-                          name={"Loan Calculator"}
-                          img={img}
-                          site={true}
-                          link2={"https://loan-calculator-nu-rouge.vercel.app/"}
-                        />
-                        <Card
-                          position={"right"}
-                          description={
-                            "This is a simple landing page made using the library SASS. It contains all basic requirements of a landing page e.g header, footer etc."
-                          }
-                          library={["SASS", "React", "AOS"]}
-                          name={"A-simple-landing-page-using-sass"}
-                          git={true}
-                          link1={
-                            "https://github.com/JCDWHIZ/a-simple-landing-page-using-sass"
-                          }
-                          site={true}
-                          link2={"https://finache.vercel.app"}
-                          img={img2}
-                        />
-                        <Card
-                          description={
-                            "This simple landing page has just a simple function. Engage in a breathing exercise in the site"
-                          }
-                          git={true}
-                          library={["HTMl", "Javascript", "CSS"]}
-                          link1={"https://github.com/JCDWHIZ/relaxer"}
-                          site={true}
-                          link2={"https://relaxer-one.vercel.app"}
-                          name={"Relaxer"}
-                          position={"left"}
-                          img={img3}
-                        />
-                        <Card
-                          description={
-                            "This is a javascript game that utilizes the fetch function api calls. You think you can win a trivia game, then try this"
-                          }
-                          git={true}
-                          library={["HTML", "CSS", "Javascript"]}
-                          link1={"https://github.com/JCDWHIZ/JSGames"}
-                          site={true}
-                          link2={"https://quizgame-gray.vercel.app"}
-                          position={"right"}
-                          name={"JSGames"}
-                          img={img4}
-                        />
-
-                        <Card
-                          description={
-                            'The project "Hulu Clone" is a web application that replicates the functionality and design of the popular streaming platform Hulu. Developed using React.js, this clone offers a visually appealing and interactive interface for browsing a wide range of movies and TV shows.'
-                          }
-                          git={true}
-                          link1={"https://github.com/JCDWHIZ/hulu-clone"}
-                          library={[
-                            "React JS",
-                            "react-icons",
-                            "CSS",
-                            "Javascript",
-                          ]}
-                          link2={"https://huluclone-xi.vercel.app"}
-                          name={"Hulu clone"}
-                          position={"left"}
-                          site={true}
-                          img={img5}
-                        />
+                        {project?.map((item, index) => (
+                          <Card
+                            key={index}
+                            position={index % 2 === 1 ? "right" : "left"}
+                            description={item.description}
+                            git={item.githubLink ? true : false}
+                            link1={item.githubLink}
+                            library={parseStringArray(item.technologies)}
+                            name={item.title}
+                            img={`${baseurl}images/${item.image}`}
+                            site={item.demoLink ? true : false}
+                            link2={item.demoLink}
+                          />
+                        ))}
                       </div>
                     </div>
                   </div>

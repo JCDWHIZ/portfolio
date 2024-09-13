@@ -2,7 +2,20 @@ import React from "react";
 import Archivecard from "../components/Archivecard";
 import { motion } from "framer-motion";
 
-function Others() {
+function Others({ archive }) {
+  function parseStringArray(input) {
+    try {
+      const parsedArray = JSON.parse(input);
+      if (Array.isArray(parsedArray)) {
+        return parsedArray;
+      } else {
+        throw new Error("Parsed result is not an array");
+      }
+    } catch (error) {
+      console.error("Error parsing input string:", error);
+      return [];
+    }
+  }
   return (
     <div>
       <div className="">
@@ -28,75 +41,16 @@ function Others() {
                       </motion.div>
 
                       <div className="my-[70px] grid lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
-                        <Archivecard
-                          name={"A Music Web App using Next 13"}
-                          description={
-                            'The project "A Music Web App using Next.js" is a comprehensive web application developed with Next.js, a popular React framework. This application aims to provide users with a seamless and interactive experience for exploring, discovering, and listening to music online.'
-                          }
-                          git1link={
-                            "https://hithub.com/JCDWHIZ/A-Music-Web-App-using-Next-13"
-                          }
-                          git1={true}
-                          library={[
-                            "Next js",
-                            "Tailwind",
-                            "react-scroll",
-                            "framer-motion",
-                            "swiper",
-                            "react-icons",
-                            "react-prallax-mouse",
-                            "swr",
-                            "react-responsive",
-                          ]}
-                        />
-                        <Archivecard
-                          description={
-                            'The project "Blog App API" is a backend application designed to serve as the server-side component for a blogging platform. Built using Node.js and Express.js, this API provides a robust and scalable foundation for managing blog posts, users, comments, and other essential features of a blogging platform.'
-                          }
-                          git1={true}
-                          git1link={"https://github.com/JCDWHIZ/blog-app-API"}
-                          git2={false}
-                          name={"Blog API using node"}
-                          library={["Node JS", "Express JS"]}
-                          site={false}
-                        />
-                        <Archivecard
-                          description={
-                            'The project "A Chat Application using Ajax and PHP" is a web-based chat application built with a combination of front-end technologies such as Ajax (Asynchronous JavaScript and XML) and back-end scripting using PHP. This application enables real-time communication between users in a chat room environment.'
-                          }
-                          git1={true}
-                          git1link={
-                            "https://github.com/JCDWHIZ/A-Chat-Application-using-Ajax-and-PHP"
-                          }
-                          library={["Ajax", "PHP", "Mysql"]}
-                          git2={false}
-                          name={"A-Chat-Application-using-Ajax-and-PHP"}
-                          site={false}
-                        />
-                        <Archivecard
-                          description={
-                            "A simple backend involving node js. This API performs all CRUD operations"
-                          }
-                          git1={true}
-                          git1link={
-                            "https://github.com/JCDWHIZ/REST-Api-using-node.js"
-                          }
-                          git2={false}
-                          library={["Node JS", "Express JS", "nodemon", "uuid"]}
-                          name={"REST API"}
-                          site={false}
-                        />
-                        <Archivecard
-                          description={
-                            "A simple react app that utilizes REDUX as its state handler. This is a simple Todo app that does simple functions like add, edit and delete"
-                          }
-                          git1={true}
-                          git1link={"https://github.com/JCDWHIZ/Redux-Todo"}
-                          library={["React JS", "Vite", "Redux"]}
-                          name={"Todo App - Redux"}
-                          site={false}
-                          git2={false}
-                        />
+                        {archive?.map((item, index) => (
+                          <Archivecard
+                            key={index}
+                            name={item.title}
+                            description={item.description}
+                            git1link={item.githubLink}
+                            git1={item.githubLink ? true : false}
+                            library={parseStringArray(item.technologies)}
+                          />
+                        ))}
                       </div>
                     </div>
                   </div>

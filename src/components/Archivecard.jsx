@@ -68,7 +68,7 @@ function Archivecard({
                 </div>
                 <div className=" ">
                   <ul className="text-slate flex gap-3 items-center text-[13px] flex-wrap leading-[0.8]">
-                    {library.map((detail, index) => (
+                    {library?.map((detail, index) => (
                       <li key={index} className="whitespace-nowrap">
                         {detail}
                       </li>

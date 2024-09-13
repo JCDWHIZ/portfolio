@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-function Hero() {
+function Hero({ about }) {
   return (
     <div>
       <div className="w-[80%]">
@@ -29,9 +29,9 @@ function Hero() {
                 animate={{ y: 0, opacity: 1 }}
                 initial={{ y: 30, opacity: 0 }}
                 transition={{ type: "tween", delay: 1.5 }}
-                className="my-3 roboto md:text-[55px] lg:text-[80px] text-slate font-bold leading-[45px] lg:whitespace-nowrap sm:text-[30px] sm:leading-[1]"
+                className="my-3 roboto md:text-[55px] lg:text-[80px] text-slate font-bold leading-[45px] lg:w-[1240px] sm:text-[30px] sm:leading-[1]"
               >
-                I build things for the web.
+                {about?.[0]?.header}
               </motion.h1>
               <motion.p
                 animate={{ y: 0, opacity: 1 }}
@@ -39,9 +39,7 @@ function Hero() {
                 transition={{ type: "tween", delay: 1.6 }}
                 className="text-slate font-sans font-semibold text-[17px] sm:w-[320px] md:w-[600px] pt-7 "
               >
-                I'm Jesse, a Full Stack Software Developer. I love to transform
-                ideas into reality using code and building exquisite and highly
-                performant applications.
+                {about?.[0]?.description}
               </motion.p>
             </div>
           </div>

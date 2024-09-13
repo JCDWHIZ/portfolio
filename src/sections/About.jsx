@@ -3,7 +3,21 @@ import img from "../profile.jpeg";
 import { motion } from "framer-motion";
 import { TiMediaPlayOutline } from "react-icons/ti";
 
-function About() {
+function About({ about }) {
+  function parseStringArray(input) {
+    try {
+      const parsedArray = JSON.parse(input);
+      if (Array.isArray(parsedArray)) {
+        return parsedArray;
+      } else {
+        throw new Error("Parsed result is not an array");
+      }
+    } catch (error) {
+      console.error("Error parsing input string:", error);
+      return [];
+    }
+  }
+  const baseurl = "https://portfolio-backend-d7ca.onrender.com/";
   return (
     <div>
       <section className="lg:w-[80%]" id="about">
@@ -32,49 +46,20 @@ function About() {
                     transition={{ type: "tween", duration: 0.5 }}
                     className="text-slate text-[18px] sm:w-[60%] md:w-[45%] lg:w-[80%] flex flex-col justify-center"
                   >
-                    <p className="font-sans">
-                      A Software Developer who loves to transform ideas into
-                      reality using code. I am skilled in creating responsive
-                      web applications with Html, css and front end frameworks
-                      such as React. I am also skilled in creating high
-                      performance APIs with back end technologies such as with
-                      nodejs and laravel, and with Databases such as Mysql and
-                      Mongo DB. My passion for programming drives me to get
-                      better at better at delivering quality services
-                    </p>
+                    <p className="font-sans">{about?.[0]?.story}</p>
                     <p className="my-3 font-sans">
                       Here are the technologies I’ve been working with recently:
                     </p>
 
                     <ul className="my-3 grid grid-cols-2 md:w-[500px] sm:w-[450px]">
-                      <li className="flex items-center gap-3 ">
-                        <TiMediaPlayOutline className="text-green text-[10px]" />{" "}
-                        Javascript
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <TiMediaPlayOutline className="text-green text-[10px]" />{" "}
-                        Node Js
-                      </li>
-                      <li className="flex items-center gap-3 ">
-                        <TiMediaPlayOutline className="text-green text-[10px]" />{" "}
-                        PHP
-                      </li>
-                      <li className="flex items-center gap-3 ">
-                        <TiMediaPlayOutline className="text-green text-[10px]" />{" "}
-                        Laravel
-                      </li>
-                      <li className="flex items-center gap-3 ">
-                        <TiMediaPlayOutline className="text-green text-[10px]" />{" "}
-                        SASS
-                      </li>
-                      <li className="flex items-center gap-3 ">
-                        <TiMediaPlayOutline className="text-green text-[10px]" />{" "}
-                        MySQL
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <TiMediaPlayOutline className="text-green text-[10px]" />
-                        Tailwind
-                      </li>
+                      {parseStringArray(about?.[0]?.technologies)?.map(
+                        (item, index) => (
+                          <li className="flex items-center gap-3 " key={index}>
+                            <TiMediaPlayOutline className="text-green text-[10px]" />{" "}
+                            {item}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </motion.div>
                   <motion.div
@@ -85,7 +70,7 @@ function About() {
                   >
                     <div className="object-cover sm:w-[270px] md:w-[350px] h-full relative ease-in-out">
                       <img
-                        src={img}
+                        src={`${baseurl}images/${about?.[0]?.image}`}
                         alt="profile"
                         className="object-cover w-full h-full"
                       />
