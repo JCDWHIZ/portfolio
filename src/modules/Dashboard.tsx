@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/sections/Footer";
 import Archive from "@/components/Archive";
 import Projects from "@/components/Projects";
-import { baseUrl } from "@/services";
 import Input from "@/components/Fields/input";
 import { useDashboard } from "@/hooks";
 

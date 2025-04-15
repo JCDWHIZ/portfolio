@@ -6,6 +6,7 @@ export const fetchWithToken = async (
   headers = {},
   withImage: boolean
 ) => {
+  console.log(withImage);
   const token = localStorage.token;
   const defaultheaders = {
     "Content-Type": "application/json",

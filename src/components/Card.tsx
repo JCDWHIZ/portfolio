@@ -1,4 +1,3 @@
-import React from "react";
 import { GoLinkExternal } from "react-icons/go";
 import { VscGithubAlt } from "react-icons/vsc";
 import { motion } from "framer-motion";
@@ -13,6 +12,16 @@ function Card({
   img,
   link1,
   link2,
+}: {
+  position: string;
+  description: string;
+  name: string;
+  library: any[];
+  site: boolean;
+  git: boolean;
+  img: string;
+  link1: string;
+  link2: string;
 }) {
   return (
     <div>
