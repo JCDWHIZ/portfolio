@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@theme {
+  --color-darknavy: #020c1b;
+  --color-lightnavy: #112240;
+  --color-lightestnavy: #233554;
+  --color-slate: #8892b0;
+  --color-lightslate: #a8b2d1;
+  --color-lightestslate: #ccd6f6;
+  --color-white: #e6f1ff;
+  --color-green: #64ffda;
+  --color-greentint: rgba(100, 255, 218, 0.1);
+  --color-pink: #f57dff;
+  --color-blue: #57cbff;
+
+  --breakpoint-sm: 200px;
+}

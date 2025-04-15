@@ -1,0 +1,36 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+/* 
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #495670, #0a192f;
+  font-family: monospace;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #495670;
+  border: 3px solid #0a192f;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a192f;
+}
+::selection {
+  background-color: #233554;
+  color: #a8b2d1;
+}
+
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.sss {
+  letter-spacing: 2px;
+} */
