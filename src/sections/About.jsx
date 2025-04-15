@@ -70,9 +70,7 @@ function About({ about }) {
                   >
                     <div className="object-cover sm:w-[270px] md:w-[350px] h-full relative ease-in-out">
                       <img
-                        src={
-                          "https://res.cloudinary.com/dcn9pnrdj/image/upload/v1744653616/portfolio_xqbinq.jpg"
-                        }
+                        src={about?.[0]?.image}
                         alt="profile"
                         className="object-cover w-full h-full"
                       />

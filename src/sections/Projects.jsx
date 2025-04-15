@@ -57,7 +57,7 @@ function Projects({ project }) {
                             link1={item.githubLink}
                             library={parseStringArray(item.technologies)}
                             name={item.title}
-                            img={`${baseurl}images/${item.image}`}
+                            img={`${item.image}`}
                             site={item.demoLink ? true : false}
                             link2={item.demoLink}
                           />
