@@ -1,28 +1,58 @@
+import { aboutSection, archiveSection, projectSection } from "@/constants";
 import { fetchWithToken } from "@/services";
 
 export const fetchAllData = async (
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   setLoading(true);
+  const withTimeout = <T>(
+    promise: Promise<T>,
+    ms: number,
+    fallback: T
+  ): Promise<T> => {
+    return new Promise<T>((resolve) => {
+      const timer = setTimeout(() => resolve(fallback), ms);
+      promise
+        .then((res) => {
+          clearTimeout(timer);
+          resolve(res);
+        })
+        .catch(() => {
+          clearTimeout(timer);
+          resolve(fallback);
+        });
+    });
+  };
+
   try {
     const [response1, response2, response3] = await Promise.all([
-      fetchWithToken("/about", "GET", null, {}, false),
-      fetchWithToken("/archive", "GET", null, {}, false),
-      fetchWithToken("/project", "GET", null, {}, false),
+      withTimeout(
+        fetchWithToken("/about", "GET", null, {}, false),
+        4000,
+        aboutSection
+      ),
+      withTimeout(
+        fetchWithToken("/archive", "GET", null, {}, false),
+        4000,
+        archiveSection
+      ),
+      withTimeout(
+        fetchWithToken("/project", "GET", null, {}, false),
+        4000,
+        projectSection
+      ),
     ]);
     localStorage.about = JSON.stringify(response1);
     localStorage.archive = JSON.stringify(response2);
     localStorage.project = JSON.stringify(response3);
-    setLoading(false);
-    console.log(response1, response2, response3);
-    // console.log(test);
   } catch (err) {
-    console.error("Error fetching data:", err);
-    // setError(err.message);
+    localStorage.about = JSON.stringify(aboutSection);
+    localStorage.archive = JSON.stringify(archiveSection);
+    localStorage.project = JSON.stringify(projectSection);
+  } finally {
     setLoading(false);
   }
 };
-
 export const parseStringArray = (input: string) => {
   try {
     const parsedArray = JSON.parse(input);
